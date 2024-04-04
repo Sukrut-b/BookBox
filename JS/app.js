@@ -27,6 +27,7 @@ window.addEventListener("click", (el) => {
       })(),
     };
     dataState.push(data);
+    console.log(data);
     localStorage.setItem("data", JSON.stringify(dataState));
   }
 });
