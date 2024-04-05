@@ -118,8 +118,6 @@ continueBtn.onclick = function() {
 
 
 
-
-
 //Cart update
 
 
@@ -214,37 +212,7 @@ if (parsedData) {
         location.reload();
       });
     });
-    // const addToBoxBtns = document.querySelectorAll('.addToBoxBtn');
-    // addToBoxBtns.forEach(btn => {
-    //   btn.addEventListener('click', () => {
-    //     const cartItem = btn.closest('tr');
-    //     cartItem.remove(); // Remove the cart item from the DOM
-  
-    //     // Update progress bar after removing item from the cart
-    //     updateProgressBar();
-    //   });
-    // });
   });
-}
-
-
-function updateProgressBar() {
-  let totalQuantity = 0;
-  const quantityFields = document.querySelectorAll("#productItemsList .qty");
-  quantityFields.forEach(field => {
-    totalQuantity += parseInt(field.textContent);
-  });
-
-  var percentage = (totalQuantity / maxQuantity) * 100;
-  if (percentage < 100) {
-    progressBar.style.width = percentage + "%";
-  }
-
-  if (percentage >= 100) {
-    alert("Progress bar is full. Add a new box!");
-  }
-
-  progressValue.textContent = percentage + "%"; // Update progress value
 }
 
 // proceed to pay modal section
