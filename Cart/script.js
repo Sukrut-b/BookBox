@@ -117,6 +117,41 @@ continueBtn.onclick = function() {
 }
 
 
+const addToBoxButtons = document.querySelectorAll("#productItemsList button[data-action='add-to-box']");
+addToBoxButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    // Remove the corresponding item from the cart
+    const productRow = button.closest("tr");
+    productRow.remove();
+    
+    // Update progress bar after removing item from the cart
+    updateProgressBar();
+  });
+});
+
+// Update progress bar width based on quantity and cart items
+function updateProgressBar() {
+  // Calculate the total quantity of items in the cart
+  let totalQuantity = 0;
+  const quantityFields = document.querySelectorAll("#productItemsList .qty");
+  quantityFields.forEach(field => {
+    totalQuantity += parseInt(field.textContent);
+  });
+
+  // Update progress bar width based on total quantity and max quantity
+  var percentage = (totalQuantity / maxQuantity) * 100;
+
+  if (percentage < 100) {
+    progressBar.style.width = percentage + "%";
+  }
+
+  if (percentage >= 100) {
+    alert("Progress bar is full. Add a new box!");
+  }
+
+  progressValue.textContent = percentage + "%"; // Update progress value
+}
+
 
 //Cart update
 
