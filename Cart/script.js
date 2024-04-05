@@ -180,7 +180,7 @@ if (parsedData) {
         <div class="d-none">${product.value}</div>
           </button>
         </td>
-        <td><button class="addToBoxBtn">Add to box</button></td>
+        // <td><button class="addToBoxBtn">Add to box</button></td>
         </tr>
         `;
 
