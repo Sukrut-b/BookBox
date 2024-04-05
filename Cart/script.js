@@ -57,7 +57,7 @@ for (var i = 0; i < minusButtons.length; i++) {
     var currentValue = parseInt(quantityField.textContent);
     if (currentValue > 0) {
       quantityField.textContent = currentValue - 1;
-      updateProgressBar(currentValue - 1, 5); // Update progress bar
+      // updateProgressBar(currentValue - 1, 5); // Update progress bar
     }
   });
 }
@@ -68,7 +68,7 @@ for (var i = 0; i < plusButtons.length; i++) {
     var currentValue = parseInt(quantityField.textContent);
     if (currentValue < 5) { // Assuming max quantity is 5
       quantityField.textContent = currentValue + 1;
-      updateProgressBar(currentValue + 1, 5); // Update progress bar
+      // updateProgressBar(currentValue + 1, 5); // Update progress bar
     }
   });
 }
@@ -239,7 +239,7 @@ if (parsedData) {
         );
         localStorage.setItem("data", JSON.stringify(filtredElementByValue));
         location.reload();
-        updateProgressBar(currentValue - 1, 5); // Update progress bar
+        updateProgressBar1(); // Update progress bar
       });
     });
 
