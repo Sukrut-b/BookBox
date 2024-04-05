@@ -212,6 +212,23 @@ if (parsedData) {
         location.reload();
       });
     });
+
+    const addToBoxBtns = document.querySelectorAll('.addToBoxBtn');
+    addToBoxBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const cartItem = btn.closest('tr');
+        const productName = cartItem.querySelector('.product-name').textContent; // Assuming you have a class "product-name" for the name of the product
+  
+        // Remove the corresponding item from the cart
+        const filteredData = parsedData.filter(item => item.name !== productName);
+        localStorage.setItem('data', JSON.stringify(filteredData));
+  
+        // Update progress bar after removing item from the cart
+        updateProgressBar();
+        cartItem.remove(); // Remove the cart item from the DOM
+      });
+    });
+
   });
 }
 
