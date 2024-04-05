@@ -216,7 +216,6 @@ if (parsedData) {
           value: Math.random() * 10e60,
           lastprice: (() => {
             if (el.parentElement.parentElement.innerText) {
-              console.log(data.name);
               return el.parentElement.parentElement.children[2].children[0]
                 .innerText;
             }
@@ -230,18 +229,17 @@ if (parsedData) {
     });
 
     const addToBoxBtns = document.querySelectorAll('.addToBoxBtn');
-    addToBoxBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const cartItem = btn.closest('tr');
-        const productName = cartItem.querySelector('.product-name').textContent; // Assuming you have a class "product-name" for the name of the product
-  
-        // Remove the corresponding item from the cart
-        const filteredData = parsedData.filter(item => item.name !== productName);
-        localStorage.setItem('data', JSON.stringify(filteredData));
-  
-        // Update progress bar after removing item from the cart
+    addToBoxBtns.forEach((el) => {
+      el.addEventListener("click", () => {
+        const elementValue =
+          el.parentElement.parentElement.children[3].children[0].children[1]
+            .innerHTML;
+        const filtredElementByValue = parsedData.filter(
+          (item) => item.value != elementValue
+        );
+        localStorage.setItem("data", JSON.stringify(filtredElementByValue));
+        location.reload();
         updateProgressBar1();
-        cartItem.remove(); // Remove the cart item from the DOM
       });
     });
 
