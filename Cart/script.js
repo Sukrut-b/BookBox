@@ -121,7 +121,7 @@ continueBtn.onclick = function() {
 //Cart update
 
 
-function updateProgressBar() {
+function updateProgressBar1() {
   let totalQuantity = 0;
   const quantityFields = document.querySelectorAll("#productItemsList .qty");
   quantityFields.forEach(field => {
@@ -180,7 +180,7 @@ if (parsedData) {
         <div class="d-none">${product.value}</div>
           </button>
         </td>
-        // <td><button class="addToBoxBtn">Add to box</button></td>
+        <td><button class="addToBoxBtn">Add to box</button></td>
         </tr>
         `;
 
@@ -239,7 +239,7 @@ if (parsedData) {
         localStorage.setItem('data', JSON.stringify(filteredData));
   
         // Update progress bar after removing item from the cart
-        updateProgressBar();
+        updateProgressBar1();
         cartItem.remove(); // Remove the cart item from the DOM
       });
     });
