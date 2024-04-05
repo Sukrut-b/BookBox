@@ -216,6 +216,7 @@ if (parsedData) {
           value: Math.random() * 10e60,
           lastprice: (() => {
             if (el.parentElement.parentElement.innerText) {
+              console.log(data.name);
               return el.parentElement.parentElement.children[2].children[0]
                 .innerText;
             }
