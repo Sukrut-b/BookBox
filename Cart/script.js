@@ -170,16 +170,16 @@ if (parsedData) {
         `;
 
     productItemsList.innerHTML += cartCard;
-    const addToBoxBtns = document.querySelectorAll('.addToBoxBtn');
-  addToBoxBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const cartItem = btn.closest('tr');
-      cartItem.remove(); // Remove the cart item from the DOM
+  //   const addToBoxBtns = document.querySelectorAll('.addToBoxBtn');
+  // addToBoxBtns.forEach(btn => {
+  //   btn.addEventListener('click', () => {
+  //     const cartItem = btn.closest('tr');
+  //     cartItem.remove(); // Remove the cart item from the DOM
 
-      // Update progress bar after removing item from the cart
-      updateProgressBar();
-    });
-  });
+  //     // Update progress bar after removing item from the cart
+  //     updateProgressBar();
+  //   });
+  // });
 
     const deleterBtn = document.querySelectorAll("#deleterBtn");
     deleterBtn.forEach((el) => {
