@@ -164,22 +164,12 @@ if (parsedData) {
           </button>
         </td>
         <td id="myTd" class="align-middle">
-        <button class="addToBoxBtn">Add to box </button>
+        <button class="addtobox">Add to box </button>
       </td>
         </tr>
         `;
 
     productItemsList.innerHTML += cartCard;
-  //   const addToBoxBtns = document.querySelectorAll('.addToBoxBtn');
-  // addToBoxBtns.forEach(btn => {
-  //   btn.addEventListener('click', () => {
-  //     const cartItem = btn.closest('tr');
-  //     cartItem.remove(); // Remove the cart item from the DOM
-
-  //     // Update progress bar after removing item from the cart
-  //     updateProgressBar();
-  //   });
-  // });
 
     const deleterBtn = document.querySelectorAll("#deleterBtn");
     deleterBtn.forEach((el) => {
@@ -227,6 +217,7 @@ if (parsedData) {
 }
 
 
+
 function updateProgressBar() {
   let totalQuantity = 0;
   const quantityFields = document.querySelectorAll("#productItemsList .qty");
@@ -245,6 +236,17 @@ function updateProgressBar() {
 
   progressValue.textContent = percentage + "%"; // Update progress value
 }
+
+const addToBoxBtns = document.querySelectorAll('.addtobox');
+  addToBoxBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const cartItem = btn.closest('tr');
+      cartItem.remove(); // Remove the cart item from the DOM
+
+      // Update progress bar after removing item from the cart
+      updateProgressBar();
+    });
+  });
 // proceed to pay modal section
 
 const modalBody = document.querySelector(".modal-body");
