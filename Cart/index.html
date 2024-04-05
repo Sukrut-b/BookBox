@@ -16,8 +16,265 @@
     />
     <link rel="stylesheet" href="./style.css">
     <title>BookTown Cart Page</title>
+    <style>
+      /* Modal styles */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+      }
+  
+      .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 30%;
+      }
+  
+      .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+  
+      .close:hover,
+      .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+      }
+  
+      /* Box styles */
+      .box-container {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+      }
+  
+      .box {
+        border: 1px solid #ccc;
+        padding: 10px;
+        text-align: center;
+      }
+  
+      .quantity {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10px;
+      }
+  
+      .quantity button {
+        padding: 5px 10px;
+      }
+  
+      .quantity span {
+        margin: 0 10px;
+      }
+      .progress-bar {
+  width: 0%;
+  height: 10px;
+  background-color: green;
+  margin-top: 5px;
+  transition: width 0.3s ease-in-out;
+}
+
+.progress-value {
+  margin-top: 5px;
+}
+    </style>
+   
   </head>
   <body>
+    <center style=" margin-top: 5%; ">
+      <div >
+        <div id="selectedBox">No box selected</div>
+        <div>
+          <span id="openModal"><button>+</button></span>
+          <div id="progressBar" class="progress-bar"></div>
+          <div id="progressValue" class="progress-value">0%</div>
+
+          
+        </div>
+        <div id="booksAdded">0 books added in your box(s).</div>
+      </div>
+    </center>
+
+    
+  
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Select your box</h2>
+        <div class="box-container">
+          <div class="box">
+            <h3>Odysseus Box</h3>
+            <p>(Small)</p>
+            <p>₹ 1199</p>
+            <div class="quantity">
+              <button class="minus">-</button>
+              <span class="qty1">0</span>
+              <button class="plus">+</button>
+            </div>
+          </div>
+          <div class="box">
+            <h3>Perseus Box</h3>
+            <p>(Medium)</p>
+            <p>₹ 1999</p>
+            <div class="quantity">
+              <button class="minus">-</button>
+              <span class="qty2">0</span>
+              <button class="plus">+</button>
+            </div>
+          </div>
+          <div class="box">
+            <h3>Hercules Box</h3>
+            <p>(Large)</p>
+            <p>₹ 2999</p>
+            <div class="quantity">
+              <button class="minus">-</button>
+              <span class="qty3">0</span>
+              <button class="plus">+</button>
+            </div>
+          </div>
+        </div>
+        <button id="continueBtn">CONTINUE</button>
+      </div>
+    </div>
+  
+   <script>
+    // Get modal elements
+var modal = document.getElementById("myModal");
+var btn = document.getElementById("openModal");
+var span = document.getElementsByClassName("close")[0];
+var selectedBox = document.getElementById("selectedBox");
+var booksAdded = document.getElementById("booksAdded");
+var progressBar = document.getElementById("progressBar");
+var quantityFields = document.getElementsByClassName("qty1");
+var quantityFields2 = document.getElementsByClassName("qty2");
+var quantityFields3 = document.getElementsByClassName("qty3");
+
+var currentValue1 = 0;
+var currentValue2 = 0;
+var currentValue3 = 0;
+var maxQuantity = 5; // Maximum quantity allowed
+
+
+// Open modal when "+" button is clicked
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// Close modal when close button is clicked
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// Close modal when user clicks outside of it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+// Update progress bar width based on quantity
+function updateProgressBar(currentValue, max) {
+  var percentage = (currentValue / max) * 100;
+  
+  if (percentage < 100) {
+    progressBar.style.width = percentage + "%";
+  }
+
+  if (percentage >= 100) {
+    alert("Progress bar is full. Add a new box!");
+  }
+  progressValue.textContent = percentage + "%"; // Update progress value
+
+}
+
+// Quantity buttons
+var minusButtons = document.getElementsByClassName("minus");
+var plusButtons = document.getElementsByClassName("plus");
+
+for (var i = 0; i < minusButtons.length; i++) {
+  minusButtons[i].addEventListener("click", function() {
+    var quantityField = this.nextElementSibling;
+    var currentValue = parseInt(quantityField.textContent);
+    if (currentValue > 0) {
+      quantityField.textContent = currentValue - 1;
+      updateProgressBar(currentValue - 1, 5); // Update progress bar
+    }
+  });
+}
+
+for (var i = 0; i < plusButtons.length; i++) {
+  plusButtons[i].addEventListener("click", function() {
+    var quantityField = this.previousElementSibling;
+    var currentValue = parseInt(quantityField.textContent);
+    if (currentValue < 5) { // Assuming max quantity is 5
+      quantityField.textContent = currentValue + 1;
+      updateProgressBar(currentValue + 1, 5); // Update progress bar
+    }
+  });
+}
+
+// Handle "CONTINUE" button click
+var continueBtn = document.getElementById("continueBtn");
+
+continueBtn.onclick = function() {
+  modal.style.display = "none";
+}
+
+continueBtn.addEventListener("click", function() {
+  var selectedQty1 = Array.from(quantityFields).find(function(field) {
+    currentValue1++;
+    return field.textContent > 0;
+  });
+  
+  var selectedQty2 = Array.from(quantityFields2).find(function(field) {
+    currentValue2++;
+
+    return field.textContent > 0;
+  });
+
+  var selectedQty3 = Array.from(quantityFields3).find(function(field) {
+    currentValue3++;
+
+    return field.textContent > 0;
+  });
+
+  if (selectedQty1) {
+    selectedBox.textContent = "Odysseus Box " + " ₹ " + 1199 * currentValue1;
+  } else if (selectedQty2) {
+    selectedBox.textContent = "Perseus Box " + " ₹ " + 1999 * currentValue2;
+  } else if (selectedQty3) {
+    selectedBox.textContent = "Hercules Box " + " ₹ " + 2999 * currentValue3;
+  } else {
+    selectedBox.textContent = "No box selected";
+  }
+
+  booksAdded.textContent = "1 book added in your box.";
+  modal.style.display = "none";
+});
+
+continueBtn.onclick = function() {
+  modal.style.display = "none";
+}
+
+   </script>
+
+
+
     <section class="h-100 h-custom">
       <div class="container h-100 py-sm-5">
         <div class="row d-flex justify-content-center align-items-center h-100">
