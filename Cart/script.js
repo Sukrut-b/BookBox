@@ -82,18 +82,18 @@ continueBtn.onclick = function() {
 
 continueBtn.addEventListener("click", function() {
   var selectedQty1 = Array.from(quantityFields).find(function(field) {
-    currentValue1++;
+    // currentValue1++;
     return field.textContent > 0;
   });
   
   var selectedQty2 = Array.from(quantityFields2).find(function(field) {
-    currentValue2++;
+    // currentValue2++;
 
     return field.textContent > 0;
   });
 
   var selectedQty3 = Array.from(quantityFields3).find(function(field) {
-    currentValue3++;
+    // currentValue3++;
 
     return field.textContent > 0;
   });
