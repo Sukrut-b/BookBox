@@ -121,7 +121,24 @@ continueBtn.onclick = function() {
 //Cart update
 
 
+function updateProgressBar() {
+  let totalQuantity = 0;
+  const quantityFields = document.querySelectorAll("#productItemsList .qty");
+  quantityFields.forEach(field => {
+    totalQuantity += parseInt(field.textContent);
+  });
 
+  var percentage = (totalQuantity / maxQuantity) * 100;
+  if (percentage < 100) {
+    progressBar.style.width = percentage + "%";
+  }
+
+  if (percentage >= 100) {
+    alert("Progress bar is full. Add a new box!");
+  }
+
+  progressValue.textContent = percentage + "%"; // Update progress value
+}
 
 
 
@@ -163,9 +180,7 @@ if (parsedData) {
         <div class="d-none">${product.value}</div>
           </button>
         </td>
-        <td id="myTd" class="align-middle">
-        <button>Add to box </button>
-      </td>
+        <td><button class="addToBoxBtn">Add to box</button></td>
         </tr>
         `;
 
