@@ -233,10 +233,11 @@ if (parsedData) {
         const filtredElementByValue = parsedData.filter(
           (item) => item.value != elementValue
         );
-        updateProgressBar1(); // Update progress bar
+        
 
         localStorage.setItem("data", JSON.stringify(filtredElementByValue));
         location.reload();
+        updateProgressBar1(); // Update progress bar
       });
     });
 
