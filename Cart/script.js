@@ -164,12 +164,22 @@ if (parsedData) {
           </button>
         </td>
         <td id="myTd" class="align-middle">
-        <button>Add to box </button>
+        <button class="addToBoxBtn">Add to box </button>
       </td>
         </tr>
         `;
 
     productItemsList.innerHTML += cartCard;
+    const addToBoxBtns = document.querySelectorAll('.addToBoxBtn');
+  addToBoxBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const cartItem = btn.closest('tr');
+      cartItem.remove(); // Remove the cart item from the DOM
+
+      // Update progress bar after removing item from the cart
+      updateProgressBar();
+    });
+  });
 
     const deleterBtn = document.querySelectorAll("#deleterBtn");
     deleterBtn.forEach((el) => {
@@ -212,9 +222,29 @@ if (parsedData) {
         location.reload();
       });
     });
+    
   });
 }
 
+
+function updateProgressBar() {
+  let totalQuantity = 0;
+  const quantityFields = document.querySelectorAll("#productItemsList .qty");
+  quantityFields.forEach(field => {
+    totalQuantity += parseInt(field.textContent);
+  });
+
+  var percentage = (totalQuantity / maxQuantity) * 100;
+  if (percentage < 100) {
+    progressBar.style.width = percentage + "%";
+  }
+
+  if (percentage >= 100) {
+    alert("Progress bar is full. Add a new box!");
+  }
+
+  progressValue.textContent = percentage + "%"; // Update progress value
+}
 // proceed to pay modal section
 
 const modalBody = document.querySelector(".modal-body");
