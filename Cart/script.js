@@ -239,7 +239,7 @@ if (parsedData) {
         );
         localStorage.setItem("data", JSON.stringify(filtredElementByValue));
         location.reload();
-        updateProgressBar1();
+        updateProgressBar(currentValue - 1, 5); // Update progress bar
       });
     });
 
