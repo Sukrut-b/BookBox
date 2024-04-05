@@ -122,13 +122,9 @@ continueBtn.onclick = function() {
 
 
 function updateProgressBar1() {
-  let totalQuantity = 0;
-  const quantityFields = document.querySelectorAll("#productItemsList .qty");
-  quantityFields.forEach(field => {
-    totalQuantity += parseInt(field.textContent);
-  });
+  const totalQuantity = 1; // Fixed total quantity
+  const percentage = (totalQuantity / maxQuantity) * 100;
 
-  var percentage = (totalQuantity / maxQuantity) * 100;
   if (percentage < 100) {
     progressBar.style.width = percentage + "%";
   }
