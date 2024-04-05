@@ -36,6 +36,9 @@ if (parsedData) {
         <div class="d-none">${product.value}</div>
           </button>
         </td>
+        <td id="myTd" class="align-middle">
+        <button>Add to box </button>
+      </td>
         </tr>
         `;
 
