@@ -236,7 +236,7 @@ if (parsedData) {
         
 
         localStorage.setItem("data", JSON.stringify(filtredElementByValue));
-        location.reload();
+        // location.reload();
         updateProgressBar1(); // Update progress bar
       });
     });
