@@ -134,6 +134,9 @@ function updateProgressBar1() {
   }
 
   progressValue.textContent = percentage + "%"; // Update progress value
+
+  // Store the progress in localStorage
+  localStorage.setItem("progress", percentage);
 }
 
 
@@ -236,9 +239,19 @@ if (parsedData) {
         
 
         localStorage.setItem("data", JSON.stringify(filtredElementByValue));
-        // location.reload();
         updateProgressBar1(); // Update progress bar
+
+        location.reload();
       });
+    });
+
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const storedProgress = localStorage.getItem("progress");
+      if (storedProgress) {
+        progressBar.style.width = storedProgress + "%"; // Update progress bar
+        progressValue.textContent = storedProgress + "%"; // Update progress value
+      }
     });
 
   });
