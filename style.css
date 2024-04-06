@@ -10,6 +10,11 @@ label {
   font-weight: bold;
 }
 
+
+#main {
+  margin-left: 100px; 
+}
+
 .row-2 {
   background: url(./IMG/deafults/book-2.png) center no-repeat;
   background-size: cover;
