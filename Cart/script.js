@@ -257,6 +257,19 @@ if (parsedData) {
   });
 }
 
+// Add event listener for "load" event after reloading the page
+window.addEventListener("load", () => {
+  updateProgressBarFromLocalStorage(); // Update progress bar based on stored progress
+});
+
+function updateProgressBarFromLocalStorage() {
+  const storedProgress = localStorage.getItem("progress");
+  if (storedProgress) {
+    progressBar.style.width = storedProgress + "%"; // Update progress bar width
+    progressValue.textContent = storedProgress + "%"; // Update progress value text
+  }
+}
+
 // proceed to pay modal section
 
 const modalBody = document.querySelector(".modal-body");
