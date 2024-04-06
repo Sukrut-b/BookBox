@@ -12,7 +12,7 @@ function findBookByName(array, name) {
   console.log(name)
   for (let i = 0; i < array.length; i++) {
     if (array[i].name === name) {
-console.log(array[i]);
+console.log("Data"+array[i]);
       return array[i];
     }
   }
