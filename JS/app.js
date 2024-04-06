@@ -23,6 +23,7 @@ window.addEventListener("click", (el) => {
   if (el.target.innerText === "Add to Cart ") {
     const bookName = el.target.parentElement.parentElement.children[1].children[0].innerText;
     const book = findBookByName(books, bookName);
+    console.log(book);
 
     let data = {
       cover: el.target.parentElement.parentElement.children[0].children[0].src,
@@ -34,7 +35,7 @@ window.addEventListener("click", (el) => {
           return el.target.parentElement.parentElement.children[1].children[2].children[0].innerText;
         }
       })(),
-      category: book ? book.category : "Uncategorized" // Add category here
+      category: book ? book.categorie : "Uncategorized" // Add category here
     };
 
     dataState.push(data);
