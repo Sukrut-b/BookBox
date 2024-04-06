@@ -376,7 +376,9 @@ parsedData.forEach((product) => {
 const modalBody2 = document.querySelector(".modal-body-2");
 
 function modalBody2Creator() {
-  totalPrice = Math.round(totalPrice * 100) / 100;
+
+
+  totalPrice = localStorage.getItem('totalPrice')
   const productBody2 = ` <div class="mb-5">
 <div class="form-floating">
   <input type="number" class="form-control border border-danger border-opacity-25" id="form3Examplea2" placeholder="v">
