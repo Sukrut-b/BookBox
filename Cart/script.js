@@ -135,9 +135,28 @@ continueBtn.onclick = function() {
 //Cart update
 
 
+// function updateProgressBar1() {
+//   const storedProgress = parseInt(localStorage.getItem("progress")) || 0; // Retrieve stored progress or default to 0
+//   const incrementAmount = 20; // Increment amount for each update
+//   const newProgress = storedProgress + incrementAmount; // Calculate new progress value
+
+//   if (newProgress <= 100) { // Ensure progress doesn't exceed 100%
+//     progressBar.style.width = newProgress + "%"; // Update progress bar width
+//     progressValue.textContent = newProgress + "%"; // Update progress value text
+
+//     // Store the updated progress in localStorage
+//     localStorage.setItem("progress", newProgress);
+//   } else {
+//     alert("Progress bar is full. Add a new box!"); // Notify if progress reaches 100%
+//   }
+// }
+
+
+
 function updateProgressBar1() {
   const storedProgress = parseInt(localStorage.getItem("progress")) || 0; // Retrieve stored progress or default to 0
-  const incrementAmount = 20; // Increment amount for each update
+  const boxLimit = parseInt(localStorage.getItem("boxLimit")) || 5; // Retrieve box limit from localStorage or default to 5
+  const incrementAmount = (100 / boxLimit); // Calculate the increment amount based on box limit
   const newProgress = storedProgress + incrementAmount; // Calculate new progress value
 
   if (newProgress <= 100) { // Ensure progress doesn't exceed 100%
@@ -150,7 +169,6 @@ function updateProgressBar1() {
     alert("Progress bar is full. Add a new box!"); // Notify if progress reaches 100%
   }
 }
-
 
 
 const productItemsList = document.getElementById("productItemsList");
