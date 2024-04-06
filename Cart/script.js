@@ -122,23 +122,20 @@ continueBtn.onclick = function() {
 
 
 function updateProgressBar1() {
-  const totalQuantity = 1; // Fixed total quantity
-  const percentage = (totalQuantity / maxQuantity) * 100;
+  const storedProgress = parseInt(localStorage.getItem("progress")) || 0; // Retrieve stored progress or default to 0
+  const incrementAmount = 20; // Increment amount for each update
+  const newProgress = storedProgress + incrementAmount; // Calculate new progress value
 
-  if (percentage < 100) {
-    progressBar.style.width = percentage + "%";
+  if (newProgress <= 100) { // Ensure progress doesn't exceed 100%
+    progressBar.style.width = newProgress + "%"; // Update progress bar width
+    progressValue.textContent = newProgress + "%"; // Update progress value text
+
+    // Store the updated progress in localStorage
+    localStorage.setItem("progress", newProgress);
+  } else {
+    alert("Progress bar is full. Add a new box!"); // Notify if progress reaches 100%
   }
-
-  if (percentage >= 100) {
-    alert("Progress bar is full. Add a new box!");
-  }
-
-  progressValue.textContent = percentage + "%"; // Update progress value
-
-  // Store the progress in localStorage
-  localStorage.setItem("progress", percentage);
 }
-
 
 
 const productItemsList = document.getElementById("productItemsList");
