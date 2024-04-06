@@ -38,7 +38,7 @@ window.addEventListener("click", (el) => {
           return el.target.parentElement.parentElement.children[1].children[2].children[0].innerText;
         }
       })(),
-      category: book.categories.map(category => category.name) || ["Uncategorized"] // Add category here
+      category: book.categorie.map(category => category.name) || ["Uncategorized"] // Add category here
     };
 
     dataState.push(data);
