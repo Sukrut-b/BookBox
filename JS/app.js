@@ -25,7 +25,7 @@ console.log("Data"+array[i]);
 window.addEventListener("click", (el) => {
   if (el.target.innerText === "Add to Cart ") {
     const bookName = el.target.parentElement.parentElement.children[1].children[0].innerText;
-    const book = findBookByName(books, bookName);
+    const book = books().filter((book) => book.name === bookName);
     console.log(book);
 
     let data = {
