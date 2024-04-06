@@ -8,13 +8,21 @@ if (localStorage.getItem("data") == null){
   dataState = [];
 }
 
+function findBookByName(array, name) {
+  for (let i = 0; i < array.length; i++) {
+    if (array[i].name === name) {
+      return array[i];
+    }
+  }
+  return null; // Return null if no matching object is found
+}
 
 
 
 window.addEventListener("click", (el) => {
   if (el.target.innerText === "Add to Cart ") {
     const bookName = el.target.parentElement.parentElement.children[1].children[0].innerText;
-    const book = books.find((book) => book.name === bookName);
+    const book = findBookByName(books, bookName);
 
     let data = {
       cover: el.target.parentElement.parentElement.children[0].children[0].src,
