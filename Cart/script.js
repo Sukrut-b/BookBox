@@ -155,7 +155,7 @@ continueBtn.onclick = function() {
 
 function updateProgressBar1() {
   const storedProgress = parseInt(localStorage.getItem("progress")) || 0; // Retrieve stored progress or default to 0
-  const boxLimit = parseInt(localStorage.getItem("boxLimit")) ; 
+  const boxLimit = parseInt(localStorage.getItem("boxLimits")) || 5 ; 
   console.log(boxLimit)// Retrieve box limit from localStorage or default to 5
   const incrementAmount = (100 / boxLimit); // Calculate the increment amount based on box limit
   const newProgress = storedProgress + incrementAmount; // Calculate new progress value
