@@ -383,7 +383,6 @@ function modalBody2Creator() {
 
   
   totalPrice = localStorage.getItem('totalPrice')
-  location.reload();
   const productBody2 = ` <div class="mb-5">
 <div class="form-floating">
   <input type="number" class="form-control border border-danger border-opacity-25" id="form3Examplea2" placeholder="v">
