@@ -81,7 +81,7 @@ continueBtn.onclick = function() {
 }
 
 continueBtn.addEventListener("click", function() {
-  const price = 0;
+  var price = 0;
   var selectedQty1 = Array.from(quantityFields).find(function(field) {
     currentValue1++;
     return field.textContent > 0;
