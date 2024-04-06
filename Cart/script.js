@@ -111,13 +111,13 @@ continueBtn.addEventListener("click", function() {
 
   let boxLimits = {};
   if (selectedQty1) {
-    boxLimits["Odysseus Box"] = 5;
+    boxLimits = 5;
   }
   if (selectedQty2) {
-    boxLimits["Perseus Box"] = 10;
+    boxLimits = 10;
   }
   if (selectedQty3) {
-    boxLimits["Hercules Box"] = 20;
+    boxLimits = 20;
   }
 
   booksAdded.textContent = "1 book added in your box.";
