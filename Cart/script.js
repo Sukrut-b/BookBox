@@ -155,7 +155,7 @@ continueBtn.onclick = function() {
 
 function updateProgressBar1() {
   const storedProgress = parseInt(localStorage.getItem("progress")) || 0; // Retrieve stored progress or default to 0
-  const boxLimit = parseInt(localStorage.getItem("boxLimits")) || 5 ; 
+  const boxLimit = parseInt(localStorage.getItem("boxLimits")) || 0 ; 
   console.log(boxLimit)// Retrieve box limit from localStorage or default to 5
   const incrementAmount = (100 / boxLimit); // Calculate the increment amount based on box limit
   const newProgress = storedProgress + incrementAmount; // Calculate new progress value
@@ -290,8 +290,33 @@ if (parsedData) {
 
 // Add event listener for "load" event after reloading the page
 window.addEventListener("load", () => {
+
   updateProgressBarFromLocalStorage(); // Update progress bar based on stored progress
+  setBoxLimitMessage();
 });
+
+
+
+function setBoxLimitMessage() {
+  const boxLimits = JSON.parse(localStorage.getItem("boxLimits")) || 0;
+  if(boxLimits == 0){
+    selectedBox.textContent = "No box selected";
+  }else if(boxLimits==5){
+    selectedBox.textContent = "Odysseus Box " + " ₹ " + 1199 ;
+
+  }
+  else if(boxLimits==10){
+    selectedBox.textContent = "Perseus Box " + " ₹ " + 1999 ;
+
+  }
+  else if(boxLimits==20){
+    selectedBox.textContent = "Hercules Box " + " ₹ " + 2999 ;
+
+  }
+ 
+}
+
+
 
 function updateProgressBarFromLocalStorage() {
   const storedProgress = localStorage.getItem("progress");
