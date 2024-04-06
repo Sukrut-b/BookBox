@@ -210,10 +210,6 @@ if (parsedData) {
         <i class="bi bi-plus-lg"></i>
         </button>
       </td>
-        <td class="align-middle">
-        <strike class="text-secondary">${product.lastprice || ""}</strike>
-        <p class="mb-0" style="font-weight: 500">$${product.price}</p>
-          </td>
           <td id="myTd" class="align-middle">
           <button id="deleterBtn" type="button" class="btn ms-4 mt-1 btn-outline-danger btn-sm" data-mdb-toggle="tooltip"
           title="Remove item">
@@ -225,6 +221,11 @@ if (parsedData) {
         </tr>
         `;
 
+
+          // <td class="align-middle">
+        // <strike class="text-secondary">${product.lastprice || ""}</strike>
+        // <p class="mb-0" style="font-weight: 500">$${product.price}</p>
+        //   </td>
     productItemsList.innerHTML += cartCard;
 
     const deleterBtn = document.querySelectorAll("#deleterBtn");
