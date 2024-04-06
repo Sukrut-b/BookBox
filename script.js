@@ -43,8 +43,8 @@ newestBookFiltred3.forEach(book => {
 
 // reccommended books
 const reccommended1 = document.getElementById("recommendedbooks1");
-const reccommended2 = document.getElementById("recommendedbooks1");
-const reccommended3 = document.getElementById("recommendedbooks1");
+const reccommended2 = document.getElementById("recommendedbooks2");
+const reccommended3 = document.getElementById("recommendedbooks3");
 
 const recommendedBooks = books().filter(book => book.deal);
 
