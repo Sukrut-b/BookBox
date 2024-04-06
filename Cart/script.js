@@ -169,6 +169,8 @@ function updateProgressBar1() {
   } else {
     alert("Progress bar is full. Add a new box!"); // Notify if progress reaches 100%
   }
+  const booksSelected = Math.floor(newProgress / 10); // Calculate the number of books selected
+  booksAdded.textContent = `${booksSelected} book(s) added in your box.`;
 }
 
 
