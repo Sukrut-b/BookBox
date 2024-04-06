@@ -41,6 +41,31 @@ newestBookFiltred3.forEach(book => {
 
 
 let parsedData = JSON.parse(localStorage.getItem("data")) || [];
+let categoriesCount = {}; // Object to store category counts
+
+// Loop through parsedData to count category occurrences
+parsedData.forEach((item) => {
+  item.category.forEach((category) => {
+    categoriesCount[category] = (categoriesCount[category] || 0) + 1;
+  });
+});
+
+// Find the max count and corresponding category
+let maxCategoryCount = 0;
+let maxCategory = "";
+for (const category in categoriesCount) {
+  if (categoriesCount.hasOwnProperty(category)) {
+    if (categoriesCount[category] > maxCategoryCount) {
+      maxCategoryCount = categoriesCount[category];
+      maxCategory = category;
+    }
+  }
+}
+
+console.log(`Max category count: ${maxCategoryCount}`);
+console.log(`Max category: ${maxCategory}`);
+
+
 
 // reccommended books
 const reccommended1 = document.getElementById("recommendedbooks1");
