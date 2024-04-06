@@ -53,11 +53,11 @@ recommendedBooks.slice(0,4).forEach(book => {
 })
 
 recommendedBooks.slice(4,8).forEach(book => {
-    reccommended1.innerHTML += (cartCreator(book));
+    reccommended2.innerHTML += (cartCreator(book));
 })
 
 recommendedBooks.slice(8,12).forEach(book => {
-    reccommended1.innerHTML += (cartCreator(book));
+    reccommended3.innerHTML += (cartCreator(book));
 })
 
 
