@@ -1,4 +1,3 @@
-import books from './books.js'; // Assuming the file path is correct
 
 var modal = document.getElementById("myModal");
 var btn = document.getElementById("openModal");
