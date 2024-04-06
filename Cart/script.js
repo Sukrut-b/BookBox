@@ -132,6 +132,7 @@ continueBtn.addEventListener("click", function() {
 const priceString = selectedBox.textContent.substring(priceIndex + 1).trim(); // Extract the price string and trim any extra whitespace
 const pricet = parseFloat(priceString);
   localStorage.setItem("totalPrice", JSON.stringify(pricet));
+  location.reload();
 
 });
 
