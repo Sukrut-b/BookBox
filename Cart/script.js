@@ -169,10 +169,7 @@ function updateProgressBar1() {
   } else {
     alert("Progress bar is full. Add a new box!"); // Notify if progress reaches 100%
   }
-  const booksSelected = Math.floor(newProgress / 10); // Calculate the number of books selected
-  localStorage.setItem("booksAdded", booksSelected);
-
-  booksAdded.textContent = `${booksSelected} book(s) added in your box.`;
+  
 }
 
 
@@ -275,7 +272,12 @@ if (parsedData) {
 
         localStorage.setItem("data", JSON.stringify(filtredElementByValue));
         updateProgressBar1(); // Update progress bar
+        const storedProgress = localStorage.getItem("progress");
 
+        const booksSelected = Math.floor(storedProgress / 10); // Calculate the number of books selected
+        localStorage.setItem("booksAdded", booksSelected);
+      
+        booksAdded.textContent = `${booksSelected} book(s) added in your box.`;
         location.reload();
       });
     });
