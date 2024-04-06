@@ -81,6 +81,7 @@ continueBtn.onclick = function() {
 }
 
 continueBtn.addEventListener("click", function() {
+  const price = 0;
   var selectedQty1 = Array.from(quantityFields).find(function(field) {
     currentValue1++;
     return field.textContent > 0;
@@ -100,10 +101,13 @@ continueBtn.addEventListener("click", function() {
 
   if (selectedQty1) {
     selectedBox.textContent = "Odysseus Box " + " ₹ " + 1199 * currentValue1;
+    price = 1199;
   } else if (selectedQty2) {
     selectedBox.textContent = "Perseus Box " + " ₹ " + 1999 * currentValue2;
+    price = 1999;
   } else if (selectedQty3) {
     selectedBox.textContent = "Hercules Box " + " ₹ " + 2999 * currentValue3;
+    price = 2999;
   } else {
     selectedBox.textContent = "No box selected";
   }
@@ -123,6 +127,7 @@ continueBtn.addEventListener("click", function() {
   booksAdded.textContent = "1 book added in your box.";
   modal.style.display = "none";
   localStorage.setItem("boxLimits", JSON.stringify(boxLimits));
+  localStorage.setItem("totalPrice", JSON.stringify(price));
 
 });
 
