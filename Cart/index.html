@@ -19,7 +19,7 @@
     <style>
 
       #selectedBox {
-        font-size: 10px;
+        font-size: 20px;
       }
       /* Modal styles */
       .modal1 {
@@ -93,6 +93,11 @@
   direction: ltr;
 }
 
+.pp {
+  display: flex;
+  flex-flow: row;
+}
+
 /* .progress-bar {
     width: 100%;
     height: 10px;
@@ -127,7 +132,7 @@
       </div>
       <div style="margin-top: 15px;" id="progressBar" class="progress-bar"></div>
      
-      <div><div id="progressValue" class="progress-value">0%</div> Occupied</div>
+      <div class="pp"><div id="progressValue" class="progress-value">0%</div> Occupied</div>
       
       <div id="booksAdded">0 books added in your box(s).</div>
     </div>
