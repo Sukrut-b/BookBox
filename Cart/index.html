@@ -17,6 +17,10 @@
     <link rel="stylesheet" href="./style.css">
     <title>BookTown Cart Page</title>
     <style>
+
+      #selectedBox {
+        font-size: 10px;
+      }
       /* Modal styles */
       .modal1 {
         display: none;
@@ -115,16 +119,15 @@
    
      
     <div style="margin: 0 16%;">
-      <div style=" margin-top: 5%; ">
+      <div style="margin-top: 5%;">
         <div id="selectedBox">No box selected</div>
-        <div>
+        <div style="margin-top: 15px;">
           <span id="openModal"><button>+</button></span>
-          
         </div>
       </div>
-      <div style="margin-top: 5px;" id="progressBar" class="progress-bar"></div>
+      <div style="margin-top: 15px;" id="progressBar" class="progress-bar"></div>
      
-      <div id="progressValue" class="progress-value">0%</div>
+      <div><div id="progressValue" class="progress-value">0%</div> Occupied</div>
       
       <div id="booksAdded">0 books added in your box(s).</div>
     </div>
