@@ -1,3 +1,4 @@
+import books from './books.js'; // Assuming the file path is correct
 
 var modal = document.getElementById("myModal");
 var btn = document.getElementById("openModal");
@@ -249,11 +250,13 @@ if (parsedData) {
               .src,
           name: el.parentElement.parentElement.children[0].children[0]
             .children[1].innerText,
+
           price:
             el.parentElement.parentElement.children[2].children[1].innerText.slice(
               1
             ),
           value: Math.random() * 10e60,
+
           lastprice: (() => {
             if (el.parentElement.parentElement.innerText) {
               return el.parentElement.parentElement.children[2].children[0]

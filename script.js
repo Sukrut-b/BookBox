@@ -40,6 +40,7 @@ newestBookFiltred3.forEach(book => {
 
 
 
+let parsedData = JSON.parse(localStorage.getItem("data")) || [];
 
 // reccommended books
 const reccommended1 = document.getElementById("recommendedbooks1");

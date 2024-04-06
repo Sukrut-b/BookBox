@@ -1,4 +1,6 @@
 // send data to cart section
+import books from './books.js'; // Assuming the file path is correct
+
 
 let dataState = JSON.parse(localStorage.getItem("data")) || [];
 
@@ -6,26 +8,27 @@ if (localStorage.getItem("data") == null){
   dataState = [];
 }
 
+
+
+
 window.addEventListener("click", (el) => {
   if (el.target.innerText === "Add to Cart ") {
+    const bookName = el.target.parentElement.parentElement.children[1].children[0].innerText;
+    const book = books.find((book) => book.name === bookName);
+
     let data = {
       cover: el.target.parentElement.parentElement.children[0].children[0].src,
-      name: el.target.parentElement.parentElement.children[1].children[0]
-        .innerText,
-      price:
-        el.target.parentElement.parentElement.children[1].children[2]
-          .children[1].innerText.slice(1),
-          value: Math.random() * 10e60,
+      name: bookName,
+      price: el.target.parentElement.parentElement.children[1].children[2].children[1].innerText.slice(1),
+      value: Math.random() * 10e60,
       lastprice: (() => {
-        if (
-          el.target.parentElement.parentElement.children[1].children[2]
-            .children[0].innerText
-        ) {
-          return el.target.parentElement.parentElement.children[1].children[2]
-            .children[0].innerText;
+        if (el.target.parentElement.parentElement.children[1].children[2].children[0].innerText) {
+          return el.target.parentElement.parentElement.children[1].children[2].children[0].innerText;
         }
       })(),
+      category: book ? book.category : "Uncategorized" // Add category here
     };
+
     dataState.push(data);
     console.log(data);
     localStorage.setItem("data", JSON.stringify(dataState));
