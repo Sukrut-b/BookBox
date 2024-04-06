@@ -217,7 +217,7 @@ if (parsedData) {
         <div class="d-none">${product.value}</div>
           </button>
         </td>
-        <td><button class="addToBoxBtn align-middle">Add to box</button></td>
+        <td class="align-middle"><button class="addToBoxBtn ">Add to box</button></td>
         </tr>
         `;
 
