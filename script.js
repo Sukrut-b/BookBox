@@ -19,12 +19,15 @@ function cartCreator(book) {
             <div class="thumb-content">
                 <h4 class="book-name">${book.name}</h4>
                     ${book.stars}
-                <p class="item-price"><strike>${book.lastPrice || ""}</strike><b>₹${book.price}</b></p>
+              
                 <button class="btn addToCart-btn btn-outline-danger"> Add to Cart <i class="bi bi-bag"></i></button>
             </div>
         </div>
     </div>`
 }
+
+
+{/* <p class="item-price"><strike>${book.lastPrice || ""}</strike><b>₹${book.price}</b></p> */}
 
 newestBookFiltred1.forEach(book => {
     newBooksCarouselItem1.innerHTML += (cartCreator(book));
