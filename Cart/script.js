@@ -171,6 +171,7 @@ function updateProgressBar1() {
   }
   const booksSelected = Math.floor(newProgress / 10); // Calculate the number of books selected
   booksAdded.textContent = `${booksSelected} book(s) added in your box.`;
+  localStorage.setItem("booksAdded", booksSelected);
 }
 
 
@@ -295,6 +296,10 @@ window.addEventListener("load", () => {
 
   updateProgressBarFromLocalStorage(); // Update progress bar based on stored progress
   setBoxLimitMessage();
+  const storedBooksAdded = localStorage.getItem("booksAdded"); // Retrieve booksAdded value from localStorage
+  if (storedBooksAdded) {
+    booksAdded.textContent = storedBooksAdded; // Update booksAdded message if a value is found in localStorage
+  }
 });
 
 
