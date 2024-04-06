@@ -80,19 +80,22 @@ continueBtn.onclick = function() {
   modal.style.display = "none";
 }
 
+var selectedQty1, selectedQty2, selectedQty3;
+
+
 continueBtn.addEventListener("click", function() {
-  var selectedQty1 = Array.from(quantityFields).find(function(field) {
+   selectedQty1 = Array.from(quantityFields).find(function(field) {
     currentValue1++;
     return field.textContent > 0;
   });
   
-  var selectedQty2 = Array.from(quantityFields2).find(function(field) {
+   selectedQty2 = Array.from(quantityFields2).find(function(field) {
     currentValue2++;
 
     return field.textContent > 0;
   });
 
-  var selectedQty3 = Array.from(quantityFields3).find(function(field) {
+   selectedQty3 = Array.from(quantityFields3).find(function(field) {
     currentValue3++;
 
     return field.textContent > 0;
@@ -123,6 +126,8 @@ continueBtn.addEventListener("click", function() {
   booksAdded.textContent = "1 book added in your box.";
   modal.style.display = "none";
   localStorage.setItem("boxLimits", JSON.stringify(boxLimits));
+  updateProgressBar1();
+
 
 });
 
@@ -135,21 +140,61 @@ continueBtn.onclick = function() {
 //Cart update
 
 
+// function updateProgressBar1() {
+//   const storedProgress = parseInt(localStorage.getItem("progress")) || 0; // Retrieve stored progress or default to 0
+//   const incrementAmount = 20; // Increment amount for each update
+//   const newProgress = storedProgress + incrementAmount; // Calculate new progress value
+
+//   if (newProgress <= 100) { // Ensure progress doesn't exceed 100%
+//     progressBar.style.width = newProgress + "%"; // Update progress bar width
+//     progressValue.textContent = newProgress + "%"; // Update progress value text
+
+//     // Store the updated progress in localStorage
+//     localStorage.setItem("progress", newProgress);
+//   } else {
+//     alert("Progress bar is full. Add a new box!"); // Notify if progress reaches 100%
+//   }
+// }
+
 function updateProgressBar1() {
-  const storedProgress = parseInt(localStorage.getItem("progress")) || 0; // Retrieve stored progress or default to 0
-  const incrementAmount = 20; // Increment amount for each update
-  const newProgress = storedProgress + incrementAmount; // Calculate new progress value
-
-  if (newProgress <= 100) { // Ensure progress doesn't exceed 100%
-    progressBar.style.width = newProgress + "%"; // Update progress bar width
-    progressValue.textContent = newProgress + "%"; // Update progress value text
-
-    // Store the updated progress in localStorage
-    localStorage.setItem("progress", newProgress);
-  } else {
-    alert("Progress bar is full. Add a new box!"); // Notify if progress reaches 100%
+  // Get the box limit values from localStorage
+  const boxLimits = JSON.parse(localStorage.getItem("boxLimits")) || {};
+  
+  // Calculate the total quantity based on the selected boxes
+  let totalQuantity = 0;
+  if (selectedQty1) {
+    totalQuantity += currentValue1;
   }
+  if (selectedQty2) {
+    totalQuantity += currentValue2;
+  }
+  if (selectedQty3) {
+    totalQuantity += currentValue3;
+  }
+
+  // Get the maximum quantity based on the selected box names
+  let maxQuantity = 0;
+  if (selectedQty1) {
+    maxQuantity = boxLimits["Odysseus Box"];
+  } else if (selectedQty2) {
+    maxQuantity = boxLimits["Perseus Box"];
+  } else if (selectedQty3) {
+    maxQuantity = boxLimits["Hercules Box"];
+  }
+
+  // Calculate the percentage for the progress bar
+  const percentage = (totalQuantity / maxQuantity) * 100;
+
+  // Update the progress bar width
+  progressBar.style.width = percentage + "%";
+
+  // Update the progress value text
+  progressValue.textContent = percentage + "%";
+
+  // Store the progress in localStorage
+  localStorage.setItem("progress", percentage);
 }
+
 
 
 
@@ -276,11 +321,28 @@ window.addEventListener("load", () => {
 
 function updateProgressBarFromLocalStorage() {
   const storedProgress = localStorage.getItem("progress");
-  if (storedProgress) {
-    progressBar.style.width = storedProgress + "%"; // Update progress bar width
-    progressValue.textContent = storedProgress + "%"; // Update progress value text
+  const storedBoxLimits = JSON.parse(localStorage.getItem("boxLimits"));
+
+  if (!storedBoxLimits) {
+    alert("Error: No box selected!");
+    return;
   }
+
+  // Calculate total quantity based on stored box limits
+  let totalQuantity = 0;
+  for (const box in storedBoxLimits) {
+    totalQuantity += storedBoxLimits[box];
+  }
+
+  const maxQuantity = totalQuantity; // Assuming maxQuantity is the total quantity of all boxes
+  const percentage = (totalQuantity / maxQuantity) * 100;
+
+  progressBar.style.width = percentage + "%";
+  progressValue.textContent = percentage + "%";
 }
+
+// Call the function to update progress bar on page load
+updateProgressBarFromLocalStorage();
 
 // proceed to pay modal section
 
