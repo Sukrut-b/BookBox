@@ -5,6 +5,7 @@ var span = document.getElementsByClassName("close")[0];
 var selectedBox = document.getElementById("selectedBox");
 var booksAdded = document.getElementById("booksAdded");
 var progressBar = document.getElementById("progressBar");
+var progressValue = document.getElementById("progressValue"); // Added progressValue
 var quantityFields = document.getElementsByClassName("qty1");
 var quantityFields2 = document.getElementsByClassName("qty2");
 var quantityFields3 = document.getElementsByClassName("qty3");
@@ -12,7 +13,8 @@ var quantityFields3 = document.getElementsByClassName("qty3");
 var currentValue1 = 0;
 var currentValue2 = 0;
 var currentValue3 = 0;
-var maxQuantity = 5; // Maximum quantity allowed
+var maxQuantity = 5; // Default maximum quantity allowed
+var boxData = {}; // Object to store box data in localStorage
 
 
 // Open modal when "+" button is clicked
@@ -57,7 +59,7 @@ for (var i = 0; i < minusButtons.length; i++) {
     var currentValue = parseInt(quantityField.textContent);
     if (currentValue > 0) {
       quantityField.textContent = currentValue - 1;
-      // updateProgressBar(currentValue - 1, 5); // Update progress bar
+      // updateProgressBar1(currentValue - 1, maxQuantity); // Update progress bar
     }
   });
 }
@@ -68,7 +70,7 @@ for (var i = 0; i < plusButtons.length; i++) {
     var currentValue = parseInt(quantityField.textContent);
     if (currentValue < 5) { // Assuming max quantity is 5
       quantityField.textContent = currentValue + 1;
-      // updateProgressBar(currentValue + 1, 5); // Update progress bar
+      // updateProgressBar1(currentValue + 1, maxQuantity); // Update progress bar
     }
   });
 }
@@ -100,31 +102,50 @@ continueBtn.addEventListener("click", function() {
 
   if (selectedQty1) {
     selectedBox.textContent = "Odysseus Box " + " ₹ " + 1199 * currentValue1;
+    // Store box data in localStorage
+    boxData[selectedBox.textContent] = 5; // Update maxQuantity for this box
+    localStorage.setItem("boxData", JSON.stringify(boxData));
   } else if (selectedQty2) {
     selectedBox.textContent = "Perseus Box " + " ₹ " + 1999 * currentValue2;
+    // Store box data in localStorage
+    boxData[selectedBox.textContent] = 10; // Update maxQuantity for this box
+    localStorage.setItem("boxData", JSON.stringify(boxData));
   } else if (selectedQty3) {
     selectedBox.textContent = "Hercules Box " + " ₹ " + 2999 * currentValue3;
+    // Store box data in localStorage
+    boxData[selectedBox.textContent] = 15; // Update maxQuantity for this box
+    localStorage.setItem("boxData", JSON.stringify(boxData));
   } else {
     selectedBox.textContent = "No box selected";
   }
 
   booksAdded.textContent = "1 book added in your box.";
+  updateProgressBar1(currentValue1, maxQuantity); // Update progress bar
   modal.style.display = "none";
 });
 
-continueBtn.onclick = function() {
-  modal.style.display = "none";
-}
-
+window.addEventListener("load", function() {
+  var storedBoxData = JSON.parse(localStorage.getItem("boxData"));
+  if (storedBoxData) {
+    for (const box in storedBoxData) {
+      if (Object.hasOwnProperty.call(storedBoxData, box)) {
+        const maxQty = storedBoxData[box];
+        if (box === selectedBox.textContent) {
+          maxQuantity = maxQty; // Update maxQuantity for the selected box
+          updateProgressBar1(currentValue1, maxQuantity); // Update progress bar based on stored data
+        }
+      }
+    }
+  }
+});
 
 
 //Cart update
 
 
-function updateProgressBar1() {
-  const storedProgress = parseInt(localStorage.getItem("progress")) || 0; // Retrieve stored progress or default to 0
-  const incrementAmount = 20; // Increment amount for each update
-  const newProgress = storedProgress + incrementAmount; // Calculate new progress value
+function updateProgressBar1(currentValue, max) {
+  const totalQuantity = currentValue + 1; // Fixed total quantity, +1 for the new box
+  const percentage = (totalQuantity / max) * 100;
 
   if (newProgress <= 100) { // Ensure progress doesn't exceed 100%
     progressBar.style.width = newProgress + "%"; // Update progress bar width
@@ -236,7 +257,7 @@ if (parsedData) {
         
 
         localStorage.setItem("data", JSON.stringify(filtredElementByValue));
-        updateProgressBar1(); // Update progress bar
+        updateProgressBar1(1, maxQuantity); // Update progress bar
 
         location.reload();
       });
