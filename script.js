@@ -72,8 +72,10 @@ const reccommended1 = document.getElementById("recommendedbooks1");
 const reccommended2 = document.getElementById("recommendedbooks2");
 const reccommended3 = document.getElementById("recommendedbooks3");
 
-const recommendedBooks = books().filter(book => book.deal);
-
+const recommendedBooks = books().filter((book) => {
+    return book.categorie.includes(maxCategory);
+  });
+  console.log("recommended books"+recommendedBooks)
 recommendedBooks.slice(0,4).forEach(book => {
     reccommended1.innerHTML += (cartCreator(book));
 })
