@@ -39,6 +39,30 @@ newestBookFiltred3.forEach(book => {
 })
 
 
+
+
+// reccommended books
+const reccommended1 = document.getElementById("recommendedbooks1");
+const reccommended2 = document.getElementById("recommendedbooks1");
+const reccommended3 = document.getElementById("recommendedbooks1");
+
+const dealedBooks = books().filter(book => book.deal);
+
+dealedBooks.slice(0,4).forEach(book => {
+    reccommended1.innerHTML += (cartCreator(book));
+})
+
+dealedBooks.slice(4,8).forEach(book => {
+    reccommended1.innerHTML += (cartCreator(book));
+})
+
+dealedBooks.slice(8,12).forEach(book => {
+    reccommended1.innerHTML += (cartCreator(book));
+})
+
+
+
+
 // best books section
 
 const bestBooksCarouselItem1 = document.getElementById("bestBooksCarouselItem1");
