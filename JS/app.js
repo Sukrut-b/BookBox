@@ -10,6 +10,7 @@ if (localStorage.getItem("data") == null){
 
 function findBookByName(array, name) {
   console.log(name)
+  console.log("Complete: "+array)
   for (let i = 0; i < array.length; i++) {
     if (array[i].name == name) {
 console.log("Data"+array[i]);
