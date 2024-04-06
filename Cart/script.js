@@ -289,10 +289,7 @@ if (parsedData) {
         progressBar.style.width = storedProgress + "%"; // Update progress bar
         progressValue.textContent = storedProgress + "%"; // Update progress value
       }
-      const storedBooksAdded = localStorage.getItem("booksAdded"); // Retrieve booksAdded value from localStorage
-  if (storedBooksAdded) {
-    booksAdded.textContent = storedBooksAdded + " books added to box"; // Update booksAdded message if a value is found in localStorage
-  }
+     
     });
 
   });
