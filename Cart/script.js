@@ -80,19 +80,22 @@ continueBtn.onclick = function() {
   modal.style.display = "none";
 }
 
+var selectedQty1, selectedQty2, selectedQty3;
+
+
 continueBtn.addEventListener("click", function() {
-  var selectedQty1 = Array.from(quantityFields).find(function(field) {
+   selectedQty1 = Array.from(quantityFields).find(function(field) {
     currentValue1++;
     return field.textContent > 0;
   });
   
-  var selectedQty2 = Array.from(quantityFields2).find(function(field) {
+   selectedQty2 = Array.from(quantityFields2).find(function(field) {
     currentValue2++;
 
     return field.textContent > 0;
   });
 
-  var selectedQty3 = Array.from(quantityFields3).find(function(field) {
+   selectedQty3 = Array.from(quantityFields3).find(function(field) {
     currentValue3++;
 
     return field.textContent > 0;
@@ -123,6 +126,8 @@ continueBtn.addEventListener("click", function() {
   booksAdded.textContent = "1 book added in your box.";
   modal.style.display = "none";
   localStorage.setItem("boxLimits", JSON.stringify(boxLimits));
+  updateProgressBar1();
+
 
 });
 
