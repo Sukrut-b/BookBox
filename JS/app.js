@@ -47,7 +47,7 @@ window.addEventListener("click", (el) => {
     Swal.fire({
       icon: "success", 
       title: "Added to Cart!",
-      text: `${bookName} has been added to your cart.`,
+      text: `${data.name} has been added to your cart.`,
       showConfirmButton: false, // Remove the OK button
       timer: 2000, // Auto close the alert after 2 seconds
     });

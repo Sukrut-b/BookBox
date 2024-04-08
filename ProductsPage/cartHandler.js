@@ -19,9 +19,6 @@ window.addEventListener("click", (el) => {
       cover: el.target.parentElement.parentElement.children[0].children[0].src,
       name: el.target.parentElement.parentElement.children[1].children[0]
         .innerText,
-      price:
-        el.target.parentElement.parentElement.children[1].children[2]
-          .children[1].innerText,
       lastprice: (() => {
         if (
           el.target.parentElement.parentElement.children[1].children[2]
