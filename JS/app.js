@@ -44,24 +44,32 @@ window.addEventListener("click", (el) => {
     dataState.push(data);
     console.log(data);
     localStorage.setItem("data", JSON.stringify(dataState));
+
+    Swal.fire({
+      icon: "success", 
+      title: "Added to Cart!",
+      text: `${bookName} has been added to your cart.`,
+      showConfirmButton: false, // Remove the OK button
+      timer: 2000, // Auto close the alert after 2 seconds
+    });
   }
 });
 
 
 // added to cart , alert section
 
-window.addEventListener("click", (el) => {
-  if (el.target.innerText === "Add to Cart "){
-    // alert(`${el.target.parentElement.children[0].innerText} Added to cart!`);
-    Swal.fire({
-      icon: "success", 
-      title: "Added to Cart!",
-      text: `${el.target.parentElement.children[0].innerText} has been added to your cart.`,
-      showConfirmButton: false, // Remove the OK button
-      timer: 2000, // Auto close the alert after 2 seconds
-    });
+// window.addEventListener("click", (el) => {
+//   if (el.target.innerText === "Add to Cart "){
+//     // alert(`${el.target.parentElement.children[0].innerText} Added to cart!`);
+//     Swal.fire({
+//       icon: "success", 
+//       title: "Added to Cart!",
+//       text: `${el.target.parentElement.children[0].innerText} has been added to your cart.`,
+//       showConfirmButton: false, // Remove the OK button
+//       timer: 2000, // Auto close the alert after 2 seconds
+//     });
     
-}});
+// }});
 
 
 

@@ -30,9 +30,7 @@ setInterval(() => {
         <div class="star-rating">
           ${book.stars}
         </div>
-        <p class="item-price"><strike class="">${
-          book.lastPrice || ""
-        }</strike><b>$${book.price}</b></p>
+
         <button class="btn btn-outline-danger"> Add to Cart <i class="bi bi-bag"></i></button>
       </div>
       </div>`;
@@ -40,3 +38,7 @@ setInterval(() => {
     });
   }
 }, 1000);
+
+{/* <p class="item-price"><strike class="">${
+  book.lastPrice || ""
+}</strike><b>$${book.price}</b></p> */}
