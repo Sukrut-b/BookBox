@@ -126,13 +126,16 @@ continueBtn.addEventListener("click", function() {
 
   booksAdded.textContent = "1 book added in your box.";
   modal.style.display = "none";
+
   localStorage.setItem("boxLimits", JSON.stringify(boxLimits));
 
   const priceIndex = selectedBox.textContent.indexOf("₹"); // Find the index of the currency symbol
 const priceString = selectedBox.textContent.substring(priceIndex + 1).trim(); // Extract the price string and trim any extra whitespace
 const pricet = parseFloat(priceString);
   localStorage.setItem("totalPrice", JSON.stringify(pricet));
-  localStorage.setItem("progress", JSON.stringify(0));
+  var temp=  localStorage.getItem("booksAdded");
+
+  localStorage.setItem("progress", JSON.stringify((temp / boxLimits) * 100));
 
   location.reload();
 
