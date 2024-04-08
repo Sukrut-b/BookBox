@@ -179,7 +179,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (selectedBox.innerText == "No box selected") {
     boxImage.style.display = "inline"; // Hide the empty box image
     filledBoxImage1.style.display = "inline"; // Show the filled box image
-    filledBoxImage2.style.display = "none"; // Show the filled box image
+    filledBoxImage2.style.display = "inline"; // Show the filled box image
 
     filledBoxImage3.style.display = "none"; // Show the filled box image
 
