@@ -141,6 +141,7 @@ console.log("Qty1:", qty1Element.innerText);
 console.log("Qty2:", qty2Element.innerText);
 console.log("Qty3:", qty3Element.innerText);
 // Store the quantities array in localStorage
+var quantities= [qty1Element.innerText, qty2Element.innerText, qty3Element.innerText] 
 localStorage.setItem("qty", JSON.stringify(quantities));
 
 
