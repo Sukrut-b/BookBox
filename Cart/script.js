@@ -207,6 +207,13 @@ document.addEventListener("DOMContentLoaded", function () {
     filledBoxImage3.style.display = "inline"; // Show the filled box image
 
   }
+  else{
+    boxImage.style.display = "none"; // Hide the empty box image
+    filledBoxImage1.style.display = "none"; // Show the filled box image
+    filledBoxImage2.style.display = "none"; // Show the filled box image
+
+    filledBoxImage3.style.display = "inline"; // Show the filled box image
+  }
 });
 
 function updateProgressBar1() {
