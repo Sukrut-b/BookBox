@@ -132,7 +132,7 @@ continueBtn.addEventListener("click", function() {
   const priceIndex = selectedBox.textContent.indexOf("₹"); // Find the index of the currency symbol
 const priceString = selectedBox.textContent.substring(priceIndex + 1).trim(); // Extract the price string and trim any extra whitespace
 const pricet = parseFloat(priceString);
-var quantities = [quantityFields, quantityFields2, quantityFields3];
+var quantities = [quantityFields.innerHTML, quantityFields2.innerHTML, quantityFields3.innerHTML];
 
 // Store the quantities array in localStorage
 localStorage.setItem("qty", JSON.stringify(quantities));
