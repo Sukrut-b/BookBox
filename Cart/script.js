@@ -410,19 +410,21 @@ window.addEventListener("load", () => {
 
 
 function setBoxLimitMessage() {
+  var total = JSON.parse(localStorage.getItem("totalPrice"));
+
   const boxLimits = JSON.parse(localStorage.getItem("boxLimits")) || 0;
   if(boxLimits == 0){
     selectedBox.textContent = "No box selected";
   }else if(boxLimits==5){
-    selectedBox.textContent = "Odysseus Box " + " ₹ " + 1199 ;
+    selectedBox.textContent = "Odysseus Box " + " ₹ " + total ;
 
   }
   else if(boxLimits==10){
-    selectedBox.textContent = "Perseus Box " + " ₹ " + 1999 ;
+    selectedBox.textContent = "Perseus Box " + " ₹ " + total ;
 
   }
   else if(boxLimits==20){
-    selectedBox.textContent = "Hercules Box " + " ₹ " + 2999 ;
+    selectedBox.textContent = "Hercules Box " + " ₹ " + total ;
 
   }
  
