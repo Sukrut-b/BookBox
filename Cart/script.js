@@ -315,7 +315,7 @@ if (parsedData) {
 
 // Add event listener for "load" event after reloading the page
 window.addEventListener("load", () => {
-  var te=  localStorage.setItem("boxLimits" );
+  var te=  localStorage.getItem("boxLimits" );
   if(te=="" || te==null){
     localStorage.setItem('progress', JSON.stringify(0));
   }
