@@ -134,30 +134,7 @@ const priceString = selectedBox.textContent.substring(priceIndex + 1).trim(); //
 const pricet = parseFloat(priceString);
   localStorage.setItem("totalPrice", JSON.stringify(pricet));
   var temp=  localStorage.getItem("booksAdded");
-  document.addEventListener("DOMContentLoaded", function () {
-    var selectedBox = document.getElementById("selectedBox");
-    var boxImage = document.getElementById("boxImage");
-    var filledBoxImage1 = document.getElementById("filledBoxImage1");
-    var filledBoxImage2 = document.getElementById("filledBoxImage2");
-    var filledBoxImage3 = document.getElementById("filledBoxImage3");
 
-
-    if (selectedBox.innerText !== "No box selected") {
-      boxImage.style.display = "inline"; // Hide the empty box image
-      filledBoxImage1.style.display = "none"; // Show the filled box image
-      filledBoxImage2.style.display = "none"; // Show the filled box image
-
-      filledBoxImage3.style.display = "none"; // Show the filled box image
-
-    }else if(selectedBox.innerText.includes !== "Odysseus Box"){
-      boxImage.style.display = "none"; // Hide the empty box image
-      filledBoxImage1.style.display = "inline"; // Show the filled box image
-      filledBoxImage2.style.display = "none"; // Show the filled box image
-
-      filledBoxImage3.style.display = "none"; // Show the filled box image
-
-    }
-  });
 
 
   localStorage.setItem("progress", JSON.stringify((temp / boxLimits) * 100));
@@ -191,7 +168,30 @@ continueBtn.onclick = function() {
 //   }
 // }
 
+document.addEventListener("DOMContentLoaded", function () {
+  var selectedBox = document.getElementById("selectedBox");
+  var boxImage = document.getElementById("boxImage");
+  var filledBoxImage1 = document.getElementById("filledBoxImage1");
+  var filledBoxImage2 = document.getElementById("filledBoxImage2");
+  var filledBoxImage3 = document.getElementById("filledBoxImage3");
 
+
+  if (selectedBox.innerText !== "No box selected") {
+    boxImage.style.display = "inline"; // Hide the empty box image
+    filledBoxImage1.style.display = "none"; // Show the filled box image
+    filledBoxImage2.style.display = "none"; // Show the filled box image
+
+    filledBoxImage3.style.display = "none"; // Show the filled box image
+
+  }else if(selectedBox.innerText.includes !== "Odysseus Box"){
+    boxImage.style.display = "none"; // Hide the empty box image
+    filledBoxImage1.style.display = "inline"; // Show the filled box image
+    filledBoxImage2.style.display = "none"; // Show the filled box image
+
+    filledBoxImage3.style.display = "none"; // Show the filled box image
+
+  }
+});
 
 function updateProgressBar1() {
   const storedProgress = parseInt(localStorage.getItem("progress")) || 0; // Retrieve stored progress or default to 0
