@@ -98,15 +98,17 @@ continueBtn.addEventListener("click", function() {
 
     return field.textContent > 0;
   });
+  var total = JSON.parse(localStorage.getItem("totalPrice"));
+
 
   if (selectedQty1) {
-    selectedBox.textContent = "Odysseus Box " + " ₹ " + 1199 * currentValue1;
+    selectedBox.textContent = "Odysseus Box " + " ₹ " + total;
     price = 1199;
   } else if (selectedQty2) {
-    selectedBox.textContent = "Perseus Box " + " ₹ " + 1999 * currentValue2;
+    selectedBox.textContent = "Perseus Box " + " ₹ " + total;
     price = 1999;
   } else if (selectedQty3) {
-    selectedBox.textContent = "Hercules Box " + " ₹ " + 2999 * currentValue3;
+    selectedBox.textContent = "Hercules Box " + " ₹ " + total;
     price = 2999;
   } else {
     selectedBox.textContent = "No box selected";
