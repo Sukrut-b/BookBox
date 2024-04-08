@@ -133,7 +133,7 @@ continueBtn.addEventListener("click", function() {
 const priceString = selectedBox.textContent.substring(priceIndex + 1).trim(); // Extract the price string and trim any extra whitespace
 const pricet = parseFloat(priceString);
 var quantities = quantityFields.innerText+","+ quantityFields2+","+ quantityFields3;
-console.log(quantityFields+quantityFields2+quantityFields3)
+console.log(quantityFields.innerText+quantityFields2+quantityFields3)
 // Store the quantities array in localStorage
 localStorage.setItem("qty", JSON.stringify(quantities));
 
