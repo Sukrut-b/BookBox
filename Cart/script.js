@@ -149,6 +149,13 @@ const pricet = parseFloat(priceString);
 
       filledBoxImage3.style.display = "none"; // Show the filled box image
 
+    }else if(selectedBox.innerText.includes !== "Odysseus Box"){
+      boxImage.style.display = "none"; // Hide the empty box image
+      filledBoxImage1.style.display = "inline"; // Show the filled box image
+      filledBoxImage2.style.display = "none"; // Show the filled box image
+
+      filledBoxImage3.style.display = "none"; // Show the filled box image
+
     }
   });
 
