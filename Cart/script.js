@@ -134,6 +134,8 @@ const priceString = selectedBox.textContent.substring(priceIndex + 1).trim(); //
 const pricet = parseFloat(priceString);
   localStorage.setItem("totalPrice", JSON.stringify(pricet));
   var temp=  localStorage.getItem("booksAdded");
+  
+
 
   localStorage.setItem("progress", JSON.stringify((temp / boxLimits) * 100));
 
@@ -313,6 +315,10 @@ if (parsedData) {
 
 // Add event listener for "load" event after reloading the page
 window.addEventListener("load", () => {
+  var te=  localStorage.setItem("boxLimits" );
+  if(te=="" || te==null){
+    localStorage.setItem('progress', JSON.stringify(0));
+  }
 
   updateProgressBarFromLocalStorage(); // Update progress bar based on stored progress
   setBoxLimitMessage();
