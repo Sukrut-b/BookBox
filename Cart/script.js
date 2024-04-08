@@ -135,7 +135,7 @@ const pricet = parseFloat(priceString);
 var quantities = [quantityFields, quantityFields2, quantityFields3];
 
 // Store the quantities array in localStorage
-localStorage.setItem("qty", JSON.stringify(quantities));
+localStorage.setItem("qty", quantities);
 
 
   localStorage.setItem("totalPrice", JSON.stringify(pricet));
