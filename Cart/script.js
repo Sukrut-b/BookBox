@@ -393,7 +393,7 @@ function modalBody2Creator() {
 </div>
 <div class="d-flex justify-content-between">
 <h5 class="text-uppercase">Total price : </h5>
-<h5>$${totalPrice}</h5>
+<h5>₹${totalPrice}</h5>
 </div>`;
 
   modalBody2.innerHTML = productBody2;
