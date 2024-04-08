@@ -232,7 +232,7 @@ if (parsedData) {
     deleterBtn.forEach((el) => {
       el.addEventListener("click", () => {
         const elementValue =
-          el.parentElement.parentElement.children[3].children[0].children[1].innerHTML;
+          el.parentElement.parentElement.children[2].children[0].children[1].innerHTML;
         const filtredElementByValue = parsedData.filter(
           (item) => item.value != elementValue
         );
@@ -275,7 +275,7 @@ if (parsedData) {
     addToBoxBtns.forEach((el) => {
       el.addEventListener("click", () => {
         const elementValue =
-          el.parentElement.parentElement.children[3].children[0].children[1].innerHTML;
+          el.parentElement.parentElement.children[2].children[0].children[1].innerHTML;
         const filtredElementByValue = parsedData.filter(
           (item) => item.value != elementValue
         );
