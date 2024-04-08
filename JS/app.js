@@ -31,7 +31,6 @@ window.addEventListener("click", (el) => {
     let data = {
       cover: el.target.parentElement.parentElement.children[0].children[0].src,
       name: bookName,
-      price: el.target.parentElement.parentElement.children[1].children[2].children[1].innerText.slice(1),
       value: Math.random() * 10e60,
       lastprice: (() => {
         if (el.target.parentElement.parentElement.children[1].children[2].children[0].innerText) {
