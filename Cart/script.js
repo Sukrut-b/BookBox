@@ -132,21 +132,35 @@ continueBtn.addEventListener("click", function() {
   const priceIndex = selectedBox.textContent.indexOf("₹"); // Find the index of the currency symbol
 const priceString = selectedBox.textContent.substring(priceIndex + 1).trim(); // Extract the price string and trim any extra whitespace
 const pricet = parseFloat(priceString);
-var qty1Element = document.querySelector(".qty1");
-var qty2Element = document.querySelector(".qty2");
-var qty3Element = document.querySelector(".qty3");
+var qty1Element = document.querySelector(".qty1").innerText;
+var qty2Element = document.querySelector(".qty2").innerText;
+var qty3Element = document.querySelector(".qty3").innerText;
 
 // Print the values of qty1, qty2, and qty3
-console.log("Qty1:", qty1Element.innerText);
-console.log("Qty2:", qty2Element.innerText);
-console.log("Qty3:", qty3Element.innerText);
+console.log("Qty1:", qty1Element);
+console.log("Qty2:", qty2Element);
+console.log("Qty3:", qty3Element);
 // Store the quantities array in localStorage
-var quantities= [qty1Element.innerText, qty2Element.innerText, qty3Element.innerText] 
+var quantities= [qty1Element, qty2Element, qty3Element] 
 localStorage.setItem("qty", JSON.stringify(quantities));
 
 
-  localStorage.setItem("totalPrice", JSON.stringify(pricet));
-  var temp=  localStorage.getItem("booksAdded");
+
+
+var quantitiesList = JSON.parse(localStorage.getItem("qty"));
+
+// Calculate the total price based on the non-zero quantity
+var totalPrice = 0;
+quantitiesList.forEach((qty, index) => {
+  if (qty !== 0) {
+    // Assuming prices are stored in an array where index 0 corresponds to qty1, index 1 to qty2, and index 2 to qty3
+    var prices = [1199, 1999, 2999];
+    totalPrice += qty * prices[index];
+  }
+}); 
+localStorage.setItem("totalPrice", JSON.stringify(totalPrice));
+
+ var temp=  localStorage.getItem("booksAdded");
 
 
 
