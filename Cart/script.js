@@ -170,52 +170,7 @@ continueBtn.onclick = function() {
 
 document.addEventListener("DOMContentLoaded", function () {
   
-  var selectedBox = document.getElementById("selectedBox");
-  console.log(selectedBox.innerText)
-  var boxImage = document.getElementById("boxImage");
-  var filledBoxImage1 = document.getElementById("filledBoxImage1");
-  var filledBoxImage2 = document.getElementById("filledBoxImage2");
-  var filledBoxImage3 = document.getElementById("filledBoxImage3");
 
-
-  if (selectedBox.innerText.includes("No box selected")) {
-    boxImage.style.display = "inline"; // Hide the empty box image
-    filledBoxImage1.style.display = "inline"; // Show the filled box image
-    filledBoxImage2.style.display = "inline"; // Show the filled box image
-
-    filledBoxImage3.style.display = "none"; // Show the filled box image
-
-  }else if(selectedBox.innerText.includes("Odysseus Box")){
-    boxImage.style.display = "none"; // Hide the empty box image
-    filledBoxImage1.style.display = "inline"; // Show the filled box image
-    filledBoxImage2.style.display = "none"; // Show the filled box image
-
-    filledBoxImage3.style.display = "none"; // Show the filled box image
-
-  }
-  else if(selectedBox.innerText.includes("Perseus Box")){
-    boxImage.style.display = "none"; // Hide the empty box image
-    filledBoxImage1.style.display = "none"; // Show the filled box image
-    filledBoxImage2.style.display = "inline"; // Show the filled box image
-
-    filledBoxImage3.style.display = "none"; // Show the filled box image
-
-  }
-  else if(selectedBox.innerText.includes("Hercules Box")){
-    boxImage.style.display = "none"; // Hide the empty box image
-    filledBoxImage1.style.display = "none"; // Show the filled box image
-    filledBoxImage2.style.display = "none"; // Show the filled box image
-
-    filledBoxImage3.style.display = "inline"; // Show the filled box image
-
-  }
-  else{
-    boxImage.style.display = "none"; // Hide the empty box image
-    filledBoxImage1.style.display = "none"; // Show the filled box image
-    filledBoxImage2.style.display = "none"; // Show the filled box image
-
-    filledBoxImage3.style.display = "inline"; // Show the filled box image
-  }
 });
 
 function updateProgressBar1() {
@@ -373,6 +328,52 @@ window.addEventListener("load", () => {
   const storedBooksAdded = localStorage.getItem("booksAdded"); // Retrieve booksAdded value from localStorage
   if (storedBooksAdded) {
     booksAdded.textContent = storedBooksAdded + " books added to box"; // Update booksAdded message if a value is found in localStorage
+  }
+  var selectedBox = document.getElementById("selectedBox");
+  console.log(selectedBox.innerText)
+  var boxImage = document.getElementById("boxImage");
+  var filledBoxImage1 = document.getElementById("filledBoxImage1");
+  var filledBoxImage2 = document.getElementById("filledBoxImage2");
+  var filledBoxImage3 = document.getElementById("filledBoxImage3");
+
+
+  if (selectedBox.innerText.includes("No box selected")) {
+    boxImage.style.display = "inline"; // Hide the empty box image
+    filledBoxImage1.style.display = "inline"; // Show the filled box image
+    filledBoxImage2.style.display = "inline"; // Show the filled box image
+
+    filledBoxImage3.style.display = "none"; // Show the filled box image
+
+  }else if(selectedBox.innerText.includes("Odysseus Box")){
+    boxImage.style.display = "none"; // Hide the empty box image
+    filledBoxImage1.style.display = "inline"; // Show the filled box image
+    filledBoxImage2.style.display = "none"; // Show the filled box image
+
+    filledBoxImage3.style.display = "none"; // Show the filled box image
+
+  }
+  else if(selectedBox.innerText.includes("Perseus Box")){
+    boxImage.style.display = "none"; // Hide the empty box image
+    filledBoxImage1.style.display = "none"; // Show the filled box image
+    filledBoxImage2.style.display = "inline"; // Show the filled box image
+
+    filledBoxImage3.style.display = "none"; // Show the filled box image
+
+  }
+  else if(selectedBox.innerText.includes("Hercules Box")){
+    boxImage.style.display = "none"; // Hide the empty box image
+    filledBoxImage1.style.display = "none"; // Show the filled box image
+    filledBoxImage2.style.display = "none"; // Show the filled box image
+
+    filledBoxImage3.style.display = "inline"; // Show the filled box image
+
+  }
+  else{
+    boxImage.style.display = "none"; // Hide the empty box image
+    filledBoxImage1.style.display = "none"; // Show the filled box image
+    filledBoxImage2.style.display = "none"; // Show the filled box image
+
+    filledBoxImage3.style.display = "inline"; // Show the filled box image
   }
 });
 
