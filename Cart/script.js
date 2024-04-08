@@ -176,19 +176,35 @@ document.addEventListener("DOMContentLoaded", function () {
   var filledBoxImage3 = document.getElementById("filledBoxImage3");
 
 
-  if (selectedBox.innerText !== "No box selected") {
+  if (selectedBox.innerText == "No box selected") {
     boxImage.style.display = "inline"; // Hide the empty box image
     filledBoxImage1.style.display = "none"; // Show the filled box image
     filledBoxImage2.style.display = "none"; // Show the filled box image
 
     filledBoxImage3.style.display = "none"; // Show the filled box image
 
-  }else if(selectedBox.innerText.includes !== "Odysseus Box"){
+  }else if(selectedBox.innerText.includes == "Odysseus Box"){
     boxImage.style.display = "none"; // Hide the empty box image
     filledBoxImage1.style.display = "inline"; // Show the filled box image
     filledBoxImage2.style.display = "none"; // Show the filled box image
 
     filledBoxImage3.style.display = "none"; // Show the filled box image
+
+  }
+  else if(selectedBox.innerText.includes == "Perseus Box"){
+    boxImage.style.display = "none"; // Hide the empty box image
+    filledBoxImage1.style.display = "none"; // Show the filled box image
+    filledBoxImage2.style.display = "inline"; // Show the filled box image
+
+    filledBoxImage3.style.display = "none"; // Show the filled box image
+
+  }
+  else if(selectedBox.innerText.includes == "Hercules Box"){
+    boxImage.style.display = "none"; // Hide the empty box image
+    filledBoxImage1.style.display = "none"; // Show the filled box image
+    filledBoxImage2.style.display = "none"; // Show the filled box image
+
+    filledBoxImage3.style.display = "inline"; // Show the filled box image
 
   }
 });
