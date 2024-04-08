@@ -183,7 +183,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     filledBoxImage3.style.display = "none"; // Show the filled box image
 
-  }else if(selectedBox.innerText.includes == "Odysseus Box"){
+  }else if(selectedBox.innerText.includes("Odysseus Box")){
     boxImage.style.display = "none"; // Hide the empty box image
     filledBoxImage1.style.display = "inline"; // Show the filled box image
     filledBoxImage2.style.display = "none"; // Show the filled box image
@@ -191,7 +191,7 @@ document.addEventListener("DOMContentLoaded", function () {
     filledBoxImage3.style.display = "none"; // Show the filled box image
 
   }
-  else if(selectedBox.innerText.includes == "Perseus Box"){
+  else if(selectedBox.innerText.includes("Perseus Box")){
     boxImage.style.display = "none"; // Hide the empty box image
     filledBoxImage1.style.display = "none"; // Show the filled box image
     filledBoxImage2.style.display = "inline"; // Show the filled box image
@@ -199,7 +199,7 @@ document.addEventListener("DOMContentLoaded", function () {
     filledBoxImage3.style.display = "none"; // Show the filled box image
 
   }
-  else if(selectedBox.innerText.includes == "Hercules Box"){
+  else if(selectedBox.innerText.includes("Hercules Box")){
     boxImage.style.display = "none"; // Hide the empty box image
     filledBoxImage1.style.display = "none"; // Show the filled box image
     filledBoxImage2.style.display = "none"; // Show the filled box image
