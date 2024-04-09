@@ -13,7 +13,7 @@ const newestBookFiltred3 = books().filter(book => book.date <= 12 && book.date >
 function cartCreator(book) {
     return `<div class="bookCon col-lg-3 col-sm-6">
         <div class="thumb-wrapper">
-            <div class="img-box">
+           <center> <div class="img-box">
                 <img src="${book.cover}" class="img-fluid" alt="book img">
             </div>
             <div class="thumb-content">
@@ -21,7 +21,9 @@ function cartCreator(book) {
                     ${book.stars}
               
                 <button class="btn addToCart-btn btn-outline-danger"> Add to Cart <i class="bi bi-bag"></i></button>
+
             </div>
+            </center>
         </div>
     </div>`
 }
