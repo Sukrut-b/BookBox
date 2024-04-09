@@ -25,14 +25,17 @@ export default function productMaker(bookData) {
 		<div class="star-rating">
 			${book.stars}
 		</div>
-		<p class="item-price"><strike class="">${book.lastPrice || ""}</strike><b>$${
-      book.price
-    }</b></p>
 		<button class="btn btn-outline-danger"> Add to Cart <i class="bi bi-bag"></i></button>
 	</div>
 	</div>`;
   });
 }
+
+
+
+{/* <p class="item-price"><strike class="">${book.lastPrice || ""}</strike><b>$${
+  book.price
+}</b></p> */}
 
 dropdownItems.forEach((el) => {
   el.addEventListener("click", (e) => {
@@ -119,10 +122,6 @@ window.addEventListener("click", (el) => {
       cover: el.target.parentElement.parentElement.children[0].children[0].src,
       name: el.target.parentElement.parentElement.children[1].children[0]
         .innerText,
-      price:
-        el.target.parentElement.parentElement.children[1].children[2].children[1].innerText.slice(
-          1
-        ),
       value: 1,
       lastprice: (() => {
         if (
