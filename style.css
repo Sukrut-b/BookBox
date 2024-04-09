@@ -337,6 +337,13 @@ main .book-name {
   max-width: 100%;
 }
 
+.custom-toast {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .my-5 {
   background-color: #cc3444;
 }

@@ -51,7 +51,10 @@ window.addEventListener("click", (el) => {
       text: `${data.name} has been added to your cart.`,
       showConfirmButton: false, // Remove the OK button
       timer: 10000, 
-      position: "top",// Auto close the alert after 2 seconds
+      position: "top",
+      customClass: {
+        popup: 'custom-toast',
+      },// Auto close the alert after 2 seconds
     });
   }
 });
