@@ -368,6 +368,7 @@ window.addEventListener("load", () => {
 
 
   if (selectedBox.innerText.includes("No box selected")) {
+    localStorage.setItem('progress', 0);
     boxImage.style.display = "inline"; // Hide the empty box image
     filledBoxImage1.style.display = "inline"; // Show the filled box image
     filledBoxImage2.style.display = "inline"; // Show the filled box image
