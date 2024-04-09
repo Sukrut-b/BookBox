@@ -145,6 +145,7 @@ h2::after {
   left: 9px;
   right: 9px;
   margin: auto;
+  margin-top: 8px;
 }
 .carousel .thumb-wrapper {
   height: 350px;
