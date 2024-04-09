@@ -111,7 +111,6 @@ h2::after {
 .carousel {
   width: 85%;
   margin: auto;
-  top:10%;
   padding: 0 2rem;
   /* centre aligns the books in slider */
   display: flex;
