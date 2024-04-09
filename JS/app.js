@@ -46,6 +46,7 @@ window.addEventListener("click", (el) => {
 
     Swal.fire({
       icon: "success", 
+      target : document.getElementById('form-modal'),
       title: "Added to Cart!",
       text: `${data.name} has been added to your cart.`,
       showConfirmButton: false, // Remove the OK button
