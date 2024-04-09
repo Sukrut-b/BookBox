@@ -44,13 +44,19 @@ window.addEventListener("click", (el) => {
     console.log(data);
     localStorage.setItem("data", JSON.stringify(dataState));
 
+    // Swal.fire({
+    //   icon: "success", 
+    //   target : document.getElementById('form-modal'),
+    //   title: "Added to Cart!",
+    //   text: `${data.name} has been added to your cart.`,
+    //   showConfirmButton: false, // Remove the OK button
+    //   timer: 10000, // Auto close the alert after 2 seconds
+    // });
     Swal.fire({
-      icon: "success", 
-      target : document.getElementById('form-modal'),
-      title: "Added to Cart!",
-      text: `${data.name} has been added to your cart.`,
-      showConfirmButton: false, // Remove the OK button
-      timer: 10000, // Auto close the alert after 2 seconds
+      title: '¿Cuál es el elemento?',
+      text: 'Introduce el nombre aquí',
+      input: 'text',
+      inputPlaceholder: 'Nombre',
     });
   }
 });
